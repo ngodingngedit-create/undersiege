@@ -2,7 +2,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const activeMobileTab = ref('beranda')
-const tabs = ['beranda', 'creation', 'shows', 'merch', 'gallery']
+const tabs = ['beranda', 'creation', 'lineup', 'tiket']
 const isClickScrolling = ref(false)
 
 const activeIndex = computed(() => {
@@ -76,10 +76,8 @@ const toggleSearch = async () => {
       
       <div class="nav-links desktop-only">
         <a href="#beranda">BERANDA</a>
-        <a href="#shows">TOUR</a>
         <a href="#creation">CO-CREATION</a>
-        <a href="#merch">MERCH</a>
-        <a href="#gallery">GALLERY</a>
+        <a href="#lineup">LINEUP</a>
       </div>
       
       <div class="nav-actions">
@@ -89,7 +87,7 @@ const toggleSearch = async () => {
         </button>
 
         <!-- Ticket Icon (SVG) -->
-        <a href="#shows" class="nav-btn brutal-ticket desktop-only">
+        <a href="#tiket" class="nav-btn brutal-ticket desktop-only">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
           TIKET
         </a>
@@ -123,14 +121,11 @@ const toggleSearch = async () => {
       <a href="#creation" class="mobile-nav-link" :class="{ 'active': activeMobileTab === 'creation' }" @click="setActiveTab('creation')">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </a>
-      <a href="#shows" class="mobile-nav-link brutal-mobile-ticket" :class="{ 'active': activeMobileTab === 'shows' }" @click="setActiveTab('shows')">
+      <a href="#lineup" class="mobile-nav-link" :class="{ 'active': activeMobileTab === 'lineup' }" @click="setActiveTab('lineup')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </a>
+      <a href="#tiket" class="mobile-nav-link brutal-mobile-ticket" :class="{ 'active': activeMobileTab === 'tiket' }" @click="setActiveTab('tiket')">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
-      </a>
-      <a href="#merch" class="mobile-nav-link" :class="{ 'active': activeMobileTab === 'merch' }" @click="setActiveTab('merch')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-      </a>
-      <a href="#gallery" class="mobile-nav-link" :class="{ 'active': activeMobileTab === 'gallery' }" @click="setActiveTab('gallery')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-image"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
       </a>
     </div>
   </nav>
@@ -171,7 +166,7 @@ const toggleSearch = async () => {
 }
 
 .nav-logo-img {
-  height: 38px; /* Scaled up for readable text inside transparent PNG */
+  height: 65px; /* Noticeably larger for readability */
   width: auto;
   filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); /* Contrast shadow */
 }
@@ -411,7 +406,7 @@ const toggleSearch = async () => {
   justify-content: center;
   align-items: center;
   color: #555;
-  width: 20%; /* Adjusted back to 1/5th each for 5 items */
+  width: 25%; /* Adjusted to 1/4th each for 4 items */
   height: 100%;
   position: relative;
   transition: color 0.3s ease;
@@ -441,7 +436,7 @@ const toggleSearch = async () => {
   position: absolute;
   top: 0;
   left: 0;
-  width: 20%; /* 5 icons */
+  width: 25%; /* 4 icons */
   height: 100%;
   pointer-events: none;
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -506,7 +501,7 @@ const toggleSearch = async () => {
 
 @media (max-width: 480px) {
   .nav-logo-img {
-    height: 22px; /* Scale down logo on small phones */
+    height: 45px; /* Larger scale on small phones */
   }
   .brutal-search-input {
     font-size: 1rem;

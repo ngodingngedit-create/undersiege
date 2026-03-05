@@ -1,57 +1,34 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
-// Slider functionality
-const images = [
-  '/beranda/konser1.jpg',
-  '/beranda/konser2.jpg',
-  '/beranda/konser3.jpg'
-]
-const currentImageIndex = ref(0)
-let sliderInterval = null
-
-onMounted(() => {
-  // Start image slider
-  sliderInterval = setInterval(() => {
-    currentImageIndex.value = (currentImageIndex.value + 1) % images.length
-  }, 4000) // Change image every 4 seconds
-})
-
-onUnmounted(() => {
-  if (sliderInterval) clearInterval(sliderInterval)
-})
 </script>
 
 <template>
   <section class="hero-section" id="beranda">
-    <div class="hero-slider">
-      <img 
-        v-for="(img, index) in images" 
-        :key="index"
-        :src="img"
-        class="slide-image"
-        :class="{ active: currentImageIndex === index }"
-        alt="Concert Background"
-      />
-    </div>
-    <div class="hero-bg">
-      <div class="bg-vignette"></div>
-    </div>
 
     <div class="container hero-content">
       <img src="/logo undersiege/LOGO.png" alt="Undersiege Logo" class="hero-logo-img" />
       
       <div class="hero-text-block">
-        <h2 class="hero-title">COMING SOON VOL 3</h2>
-        <p class="hero-date">2027<br>PAMULANG SQUARE, TANGERANG SELATAN</p>
+        <h2 class="hero-address">
+          Jl. Baru Awirarangan Blok Batu Karut, Winduhaji, Kec. Kuningan, Kabupaten Kuningan, Jawa Barat 45511
+        </h2>
         
-        <div class="hero-slogan-pill">
-          "SEMUA AKAN PUNK PADA WAKTUNYA"
-        </div>
-        
-        <div class="hero-actions">
-          <a href="#shows" class="brutal-btn primary">BELI TIKET</a>
-          <a href="#shows" class="brutal-btn secondary">LIHAT LINEUP</a>
+        <div class="hero-event-info">
+          <div class="info-tag date-tag">
+            <div class="info-label-group">
+              <div class="info-label">EARLY ENTRY TICKET</div>
+            </div>
+            <div class="info-value">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span>7 MARET 2026</span>
+            </div>
+          </div>
+          <div class="info-tag venue-tag">
+            <div class="info-label">VENUE</div>
+            <div class="info-value">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>BALI UNITED STUDIO</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -68,51 +45,10 @@ onUnmounted(() => {
   padding-top: var(--nav-height);
   position: relative;
   overflow: hidden;
-  background-color: var(--bg-color); 
+  background-color: #0a0a0c; 
 }
 
-.hero-slider {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 0; 
-  /* Softer treatment, restoring some natural color */
-  filter: grayscale(40%) contrast(1.1);
-}
 
-.slide-image {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 2s ease-in-out; /* Smooth fade */
-}
-
-.slide-image.active {
-  opacity: 0.5; /* Moderately dark for text legibility */
-}
-
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Cinematic soft vignette */
-  background: radial-gradient(circle at center, rgba(18,18,20,0.3) 0%, rgba(18,18,20,0.95) 100%);
-  z-index: 1; 
-  pointer-events: none; 
-}
-
-.bg-vignette {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to bottom, transparent 60%, var(--bg-color) 100%);
-  z-index: 2; 
-  pointer-events: none;
-}
 
 .hero-content {
   position: relative;
@@ -126,10 +62,10 @@ onUnmounted(() => {
 }
 
 .hero-logo-img {
-  width: 90%;
-  max-width: 600px; /* Base size for logo */
+  width: 95%; /* Take up more horizontal space on mobile */
+  max-width: 850px; /* Noticeably larger max size for desktop */
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* A bit more breathing room */
   position: relative;
   z-index: 10;
   filter: drop-shadow(0 10px 25px rgba(0,0,0,0.9)); /* Refined deeper shadow for PNG */
@@ -148,77 +84,82 @@ onUnmounted(() => {
   margin-bottom: 60px;
 }
 
-.hero-title {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  color: #fff;
-  text-shadow: 0 5px 15px rgba(0,0,0,0.6);
-  background-color: transparent;
-  padding: 0;
-  display: inline-block;
-  margin-bottom: 10px;
-  letter-spacing: 2px;
-  transform: none; /* Remove brutalist skew */
-  box-shadow: none;
-}
-
-.hero-date {
+.hero-address {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: clamp(0.9rem, 2vw, 1.2rem);
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   color: #ddd;
   line-height: 1.8;
   background-color: transparent;
   padding: 0;
   border-left: none;
-  margin-bottom: 30px;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-.hero-slogan-pill {
-  background-color: rgba(255, 85, 0, 0.1);
-  color: var(--accent-color);
-  padding: 12px 30px;
-  border-radius: 50px; /* Smooth elegant pill */
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 2px;
   margin-bottom: 40px;
-  border: 1px solid rgba(255, 85, 0, 0.3);
-  box-shadow: 0 5px 20px rgba(255, 85, 0, 0.1);
-  backdrop-filter: blur(5px);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  max-width: 600px;
 }
 
-.hero-actions {
+.hero-event-info {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-/* Base button styling inherited from global .brutal-btn but refined */
-.brutal-btn.primary {
+.info-tag {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: 'Inter', sans-serif;
+  border-radius: 6px;
+  text-transform: uppercase;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.info-label-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  opacity: 0.85;
+}
+
+.info-sub-label {
+  font-size: 0.55rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.info-value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.date-tag {
   background-color: var(--accent-color);
   color: #fff;
   border: 1px solid var(--accent-color);
+  box-shadow: 0 5px 20px rgba(255, 85, 0, 0.3);
 }
 
-.brutal-btn.primary:hover {
-  background-color: var(--accent-hover);
-  border-color: var(--accent-hover);
-}
-
-.brutal-btn.secondary {
-  background-color: rgba(255, 255, 255, 0.05); /* Soft transparent white */
+.venue-tag {
+  background-color: rgba(255, 255, 255, 0.05);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-}
-
-.brutal-btn.secondary:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
 }
 
 @media (max-width: 768px) {

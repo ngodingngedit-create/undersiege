@@ -2,11 +2,14 @@
 import Nav from './components/Nav.vue'
 import Marquee from './components/Marquee.vue'
 import Hero from './components/Hero.vue'
-import Shows from './components/Shows.vue'
-import Merch from './components/Merch.vue'
+// import Shows from './components/Shows.vue'
+// import Merch from './components/Merch.vue'
+import Tiket from './components/Tiket.vue'
+import Lineup from './components/Lineup.vue'
 import Gallery from './components/Gallery.vue'
 import SocialLinks from './components/SocialLinks.vue'
 import CreationWith from './components/CreationWith.vue'
+import Description from './components/Description.vue'
 </script>
 
 <template>
@@ -15,22 +18,23 @@ import CreationWith from './components/CreationWith.vue'
     <!-- Hero Section -->
     <Hero />
     
-    <Marquee />
-    
     <main>
-      <Shows />
-      <Marquee />
-      <Merch />
+      <!-- <Shows /> -->
+      <Description />
       <Marquee />
       <CreationWith />
-      <Gallery />
+      <Lineup />
+      <Tiket />
+      <!-- <Marquee />
+      <Merch /> -->
+      <Marquee />
+      <!-- <Gallery /> -->
     </main>
 
     <footer class="footer">
       <div class="container footer-content">
         <div class="footer-left">
-          <h2 class="footer-logo">UNDER SIEGE</h2>
-          <p class="footer-slogan">JAKARTA HARDCORE EVENT</p>
+          <img src="/logo undersiege/LOGO.png" alt="Undersiege Logo" class="footer-logo-img" />
         </div>
         <div class="footer-right">
           <SocialLinks />
@@ -62,20 +66,17 @@ import CreationWith from './components/CreationWith.vue'
   padding: 80px 40px;
 }
 
-.footer-logo {
-  font-size: clamp(3rem, 6vw, 4rem); /* Slightly smaller */
-  margin-bottom: 0px;
-  letter-spacing: 3px;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); /* Softer outline */
-  color: transparent;
-  text-shadow: none; /* Removed harsh shadow */
+.footer-logo-img {
+  height: 100px; /* Noticeably larger size */
+  width: auto;
+  margin-bottom: 8px; /* Slightly more space for the scale */
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
   transition: all 0.3s ease;
 }
 
-.footer-logo:hover {
-  color: #fff;
-  -webkit-text-stroke: 0;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+.footer-logo-img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
 }
 
 .footer-slogan {

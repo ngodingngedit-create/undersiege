@@ -5,7 +5,7 @@
 <template>
   <section class="creation-section" id="creation">
     <div class="container">
-      <h2 class="section-title">CO - CREATION WITH,</h2>
+      <h2 class="section-title">CO - CREATION WITH</h2>
       
       <div class="partners-grid">
         <!-- Partner 1 -->
@@ -14,7 +14,7 @@
             <img src="/creation logo/logo.png?v=2" alt="Smartest Bomb Records" class="brand-logo" />
           </div>
           <div class="partner-desc">
-            <p><strong>Smartest Bomb Records</strong> is an independent record label based in Jakarta, founded in 2016 by <strong>Imam Agnianto</strong> and <strong>Trisno Agung</strong> — longtime friends, members of <strong>Innocenti</strong>, and part of the <strong>Smartest Bomb Kolektif</strong>.</p>
+            <p><strong>Smartest Bomb Records</strong></p>
             <p>Built from a deep love for street culture and community — punk, skinhead, and mods. Smartest Bomb Records was never meant to be just a label, but a home for honest voices from the grassroots. With a wide musical spectrum ranging from punk, Oi!, ska, soul, to indie pop, the label focuses on releasing emerging bands across genres, delivering social perspectives, working-class realities, and a spirit of resistance.</p>
             <p>Driven by a strong DIY ethic while operating with a professional mindset, Smartest Bomb Records moves as a collective — from the community, by the community, for the community. Every release documents its time; every record captures the raw voice of the streets, recorded with integrity.</p>
             <p>More than a music business, it stands as a cultural archive, a space for solidarity, and a platform for the next generation to speak up.</p>
@@ -87,8 +87,7 @@
 <style scoped>
 .creation-section {
   padding: 80px 0;
-  background-color: var(--bg-color);
-  background-image: linear-gradient(to bottom, rgba(18,18,20,1) 0%, rgba(40,20,10,0.4) 50%, rgba(18,18,20,1) 100%);
+  background-color: #0d0d0f; /* Pitch dark to match other sections */
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
