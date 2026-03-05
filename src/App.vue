@@ -24,10 +24,10 @@ import Description from './components/Description.vue'
       <Marquee />
       <CreationWith />
       <Lineup />
+      <Marquee />
       <Tiket />
       <!-- <Marquee />
       <Merch /> -->
-      <Marquee />
       <!-- <Gallery /> -->
     </main>
 
@@ -55,8 +55,8 @@ import Description from './components/Description.vue'
 }
 
 .footer {
-  background-color: var(--bg-color); /* Match charcoal bg */
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Gentle line instead of thick border */
+  background-color: #0d0d0f; /* Match charcoal bg of other sections */
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Gentle line instead of thick border */
 }
 
 .footer-content {
