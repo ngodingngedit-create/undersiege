@@ -7,7 +7,7 @@
         </div>
         
         <div class="desc-right">
-          <h3 class="desc-subtitle">THE NOISE. THE SWEAT. THE CHAOS.</h3>
+          <h3 class="desc-subtitle">RAGE & RHYMES FESTIVAL</h3>
           <div class="desc-text-wrapper">
             <p class="desc-text">
               As the global hardcore scene continues to expand, <span class="text-highlight">JAKARTA UNDER SIEGE</span> has become more than just a local stage — it serves as a meeting point between Indonesian and international communities.

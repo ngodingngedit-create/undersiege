@@ -11,6 +11,7 @@ const bands = [
     social: '@haywire_hxc',
     spotifyLink: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3LDIBRoaCDQ?utm_source=generator&theme=0'
   },
+  /*
   { 
     id: 2, 
     name: 'STRAIGHT ANSWER', 
@@ -56,6 +57,7 @@ const bands = [
     social: '@finalattack',
     spotifyLink: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3LDIBRoaCDQ?utm_source=generator&theme=0'
   }
+  */
 ]
 
 // Modal state
