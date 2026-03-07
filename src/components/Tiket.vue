@@ -75,13 +75,14 @@ onUnmounted(() => {
       <div class="tiket-main-content">
         <!-- Left Side: Banner -->
         <div class="tiket-banner-wrapper">
-          <img src="/event/Haywire_banner 1090 x 350.jpg" alt="Haywire Under Siege" class="tiket-banner" />
+          <img src="/event/Haywire_banner2.jpeg" alt="Haywire Under Siege" class="tiket-banner" />
         </div>
         
         <!-- Right Side: Details & Actions -->
         <div class="tiket-details-panel">
           <!-- Details Card -->
           <div class="info-card">
+            
             <ul class="info-list">
               <li>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
@@ -93,7 +94,7 @@ onUnmounted(() => {
               </li>
               <li>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Bali United Studio</span>
+                <span> TBA </span>
               </li>
             </ul>
             
@@ -105,7 +106,7 @@ onUnmounted(() => {
           
           <!-- Action Buttons -->
           <div class="action-buttons">
-            <button class="btn btn-secondary">Chat</button>
+            <button class="btn btn-secondary" v-show="false">Chat</button>
             <a href="https://kolektix.com/event/jakarta-undersiege" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
               Beli Tiket
             </a>
@@ -231,7 +232,7 @@ onUnmounted(() => {
   display: grid;
   grid-template-columns: 2.5fr 1fr;
   gap: 30px;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
 /* Left Panel: Banner */
@@ -246,8 +247,8 @@ onUnmounted(() => {
 
 .tiket-banner {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
   transition: transform 0.5s ease;
 }

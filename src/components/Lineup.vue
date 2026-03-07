@@ -6,10 +6,15 @@ const bands = [
     id: 1, 
     name: 'HAYWIRE', 
     origin: 'BOSTON, USA', 
-    image: 'https://images.unsplash.com/photo-1598387181032-a310322ba58d?q=80&w=600&auto=format&fit=crop',
+    image: '/event/Haywire_banner2.jpeg',
     about: 'Menjadi salah satu ikon hardcore punk dari Boston, Haywire dikenal dengan energi liar dan riff yang super ngebut. Mereka membawa distorsi kental yang tidak pernah gagal memanaskan moshpit di setiap panggungnya.',
     social: '@haywire_hxc',
-    spotifyLink: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3LDIBRoaCDQ?utm_source=generator&theme=0'
+    spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
+    appleMusicLink: 'https://music.apple.com/us/artist/haywire-617/1715695747',
+    instagramLink: 'https://www.instagram.com/haywire617/',
+    youtubeLink: 'https://www.youtube.com/channel/UCP80m_rOjKXxjoBoQd2hyoA',
+    tiktokLink: 'https://www.tiktok.com/@haywire_617',
+    twitterLink: ''
   },
   /*
   { 
@@ -115,7 +120,7 @@ onUnmounted(() => {
               <a :href="band.spotifyLink" target="_blank" class="row-action-icon spotify-icon" @click.stop title="Spotify">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 11.9c3.2-1.2 6.6-1.5 10-.9"></path><path d="M7 14.5c2.8-.9 5.8-1 8.8-.4"></path><path d="M7.4 9.1c3.5-1.5 7.4-1.8 11.3-.9"></path></svg>
               </a>
-              <a href="#" class="row-action-icon apple-icon" @click.stop title="Apple Music">
+              <a v-if="band.appleMusicLink" :href="band.appleMusicLink" target="_blank" class="row-action-icon apple-icon" @click.stop title="Apple Music">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
               </a>
             </div>
@@ -128,16 +133,16 @@ onUnmounted(() => {
             </div>
             
             <div class="row-right">
-              <a href="#" class="row-action-icon" @click.stop title="Instagram">
+              <a v-if="band.instagramLink" :href="band.instagramLink" target="_blank" class="row-action-icon" @click.stop title="Instagram">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
-              <a href="#" class="row-action-icon" @click.stop title="YouTube">
+              <a v-if="band.youtubeLink" :href="band.youtubeLink" target="_blank" class="row-action-icon" @click.stop title="YouTube">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
               </a>
-              <a href="#" class="row-action-icon" @click.stop title="Twitter">
+              <a v-if="band.twitterLink" :href="band.twitterLink" target="_blank" class="row-action-icon" @click.stop title="Twitter">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
               </a>
-              <a href="#" class="row-action-icon" @click.stop title="TikTok">
+              <a v-if="band.tiktokLink" :href="band.tiktokLink" target="_blank" class="row-action-icon" @click.stop title="TikTok">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
               </a>
             </div>
@@ -178,27 +183,27 @@ onUnmounted(() => {
               <h4 class="stunning-subtitle">SOCIAL MEDIA</h4>
               <div class="stunning-social-box">
                 <!-- Instagram -->
-                <a href="#" class="stunning-social-link">
+                <a v-if="selectedBand.instagramLink" :href="selectedBand.instagramLink" target="_blank" class="stunning-social-link">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                   <span>Instagram</span>
                 </a>
                 <!-- YouTube -->
-                <a href="#" class="stunning-social-link">
+                <a v-if="selectedBand.youtubeLink" :href="selectedBand.youtubeLink" target="_blank" class="stunning-social-link">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                   <span>YouTube</span>
                 </a>
                 <!-- Twitter -->
-                <a href="#" class="stunning-social-link">
+                <a v-if="selectedBand.twitterLink" :href="selectedBand.twitterLink" target="_blank" class="stunning-social-link">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
                   <span>Twitter</span>
                 </a>
                 <!-- TikTok -->
-                <a href="#" class="stunning-social-link">
+                <a v-if="selectedBand.tiktokLink" :href="selectedBand.tiktokLink" target="_blank" class="stunning-social-link">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
                   <span>TikTok</span>
                 </a>
                 <!-- Apple Music -->
-                <a href="#" class="stunning-social-link">
+                <a v-if="selectedBand.appleMusicLink" :href="selectedBand.appleMusicLink" target="_blank" class="stunning-social-link">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
                   <span>Apple Music</span>
                 </a>
