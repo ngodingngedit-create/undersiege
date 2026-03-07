@@ -4,6 +4,7 @@
       <div class="desc-grid">
         <div class="desc-left">
           <img src="/logo undersiege/LOGO.png" alt="Undersiege Logo" class="desc-logo" />
+          <img src="/deskrips/Haywire_main flyer_teaser.jpg" alt="Haywire Poster" class="desc-poster" />
         </div>
         
         <div class="desc-right">
@@ -53,10 +54,11 @@
 
 .desc-left {
   position: sticky;
-  top: 150px;
+  top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 40px;
 }
 
 
@@ -71,6 +73,19 @@
 @keyframes gentleFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
+}
+
+.desc-poster {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 4px; /* Slight rounding for a polished look */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.desc-poster:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
 }
 
 .desc-right {
@@ -131,7 +146,7 @@
 @media (max-width: 900px) {
   .desc-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 40px;
   }
   
   .desc-left {
