@@ -29,7 +29,7 @@ onMounted(async () => {
       <img src="/logo undersiege/LOGO.png" alt="Undersiege Logo" class="hero-logo-img" />
       
       <div class="hero-text-block">
-        <h2 class="hero-address">
+        <h2 class="hero-address" v-show="false">
           <a v-if="eventData && eventData.location_map" :href="eventData.location_map" target="_blank" rel="noopener noreferrer" class="address-link">
             {{ eventData.location_city || eventData.location_name }}<br>
           </a>
@@ -45,7 +45,7 @@ onMounted(async () => {
             </div>
             <div class="info-value">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <span v-if="eventData">{{ formatDate(eventData.start_date) }} {{ eventData.location_city ? eventData.location_city.toUpperCase() : '' }}</span>
+              <span v-if="eventData">{{ formatDate(eventData.start_date) }}</span>
               <span v-else>Saturday, 30 MAY 2026</span>
             </div>
           </div>
