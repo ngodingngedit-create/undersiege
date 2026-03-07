@@ -104,7 +104,7 @@ onUnmounted(() => {
     <div class="container">
       <div class="lineup-header">
         <h2 class="section-title">LINEUP</h2>
-        <p class="section-subtitle">THE NOISE. THE ENERGY. THE CHAOS.</p>
+        <!-- <p class="section-subtitle">THE NOISE. THE ENERGY. THE CHAOS.</p> -->
       </div>
       
       <div class="lineup-stage-container">

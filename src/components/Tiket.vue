@@ -1,12 +1,21 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { getEvent } from '../api/kolektix.js/kolektix.js'
 
 const days = ref(0)
 const hours = ref(0)
 const minutes = ref(0)
 const seconds = ref(0)
 
-const targetDate = new Date('2026-05-30T14:00:00+07:00').getTime()
+const eventData = ref(null)
+
+const formatDateId = (dateStr) => {
+  if (!dateStr) return ''
+  const date = new Date(dateStr)
+  return date.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })
+}
+
+let targetDate = new Date('2026-05-30T14:00:00+07:00').getTime()
 let interval = null
 
 const updateCountdown = () => {
@@ -28,7 +37,19 @@ const updateCountdown = () => {
   seconds.value = Math.floor((distance % (1000 * 60)) / 1000)
 }
 
-onMounted(() => {
+onMounted(async () => {
+  try {
+    const data = await getEvent()
+    if (data) {
+      eventData.value = data
+      if (data.start_date && data.start_time) {
+        targetDate = new Date(`${data.start_date}T${data.start_time}:00+07:00`).getTime()
+      }
+    }
+  } catch (err) {
+    console.error("Failed to load event data", err)
+  }
+  
   updateCountdown()
   interval = setInterval(updateCountdown, 1000)
 })
@@ -86,15 +107,18 @@ onUnmounted(() => {
             <ul class="info-list">
               <li>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
-                <span>30 Mei 2026</span>
+                <span v-if="eventData">{{ formatDateId(eventData.start_date) }}</span>
+                <span v-else>30 Mei 2026</span>
               </li>
               <li>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <span>14:00 - 22:00 WIB</span>
+                <span v-if="eventData">{{ eventData.start_time }} - {{ eventData.end_time }} {{ eventData.zone_time }}</span>
+                <span v-else>16:00 - 22:00 WIB</span>
               </li>
               <li>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span> JAKARTA, INDONESIA </span>
+                <span v-if="eventData">{{ eventData.location_name }}</span>
+                <span v-else> JAKARTA, INDONESIA </span>
               </li>
             </ul>
             
@@ -315,10 +339,13 @@ onUnmounted(() => {
 }
 
 .organizer-logo {
-  height: 40px;
+  height: 40px; /* Dipertahankan 40px agar ukuran kotak (container) tidak melar */
   width: auto;
   align-self: flex-start;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  transform: scale(2.4) translate(-4px, -2px); /* Scale besar & digeser sedikit ke kiri atas */
+  transform-origin: left top;
+  margin-bottom: 15px; /* Ruang tambahan di bawah agar gambar yang membesar tidak terpotong atau terlalu mepet */
 }
 
 .action-buttons {

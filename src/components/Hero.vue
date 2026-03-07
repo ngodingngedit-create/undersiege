@@ -1,4 +1,25 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+import { getEvent } from '../api/kolektix.js/kolektix.js'
+
+const eventData = ref(null)
+
+const formatDate = (dateStr) => {
+  if (!dateStr) return ''
+  const date = new Date(dateStr)
+  return date.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase()
+}
+
+onMounted(async () => {
+  try {
+    const data = await getEvent()
+    if (data) {
+      eventData.value = data
+    }
+  } catch (err) {
+    console.error("Failed to load event data", err)
+  }
+})
 </script>
 
 <template>
@@ -9,7 +30,10 @@
       
       <div class="hero-text-block">
         <h2 class="hero-address">
-          <a href="https://maps.app.goo.gl/sWwqDMCFrrHT5eek7" target="_blank" rel="noopener noreferrer" class="address-link">
+          <a v-if="eventData && eventData.location_map" :href="eventData.location_map" target="_blank" rel="noopener noreferrer" class="address-link">
+            {{ eventData.location_city || eventData.location_name }}<br>
+          </a>
+          <a v-else href="https://maps.app.goo.gl/sWwqDMCFrrHT5eek7" target="_blank" rel="noopener noreferrer" class="address-link">
             Jakarta, Indonesia<br>
           </a>
         </h2>
@@ -17,18 +41,20 @@
         <div class="hero-event-info">
           <div class="info-tag date-tag">
             <div class="info-label-group">
-              <div class="info-label">JAKARTA UNDER SIEGE</div>
+              <div class="info-label"></div>
             </div>
             <div class="info-value">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <span>Saturday, 30 MAY 2026 JAKARTA, INDONESIA</span>
+              <span v-if="eventData">{{ formatDate(eventData.start_date) }} {{ eventData.location_city ? eventData.location_city.toUpperCase() : '' }}</span>
+              <span v-else>Saturday, 30 MAY 2026</span>
             </div>
           </div>
-          <div class="info-tag venue-tag">
+          <div class="info-tag venue-tag" v-show="false">
             <div class="info-label">VENUE</div>
             <div class="info-value">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <span>JAKARTA, INDONESIA</span>
+              <span v-if="eventData">{{ eventData.location_name.toUpperCase() }}</span>
+              <span v-else>JAKARTA, INDONESIA</span>
             </div>
           </div>
         </div>
@@ -65,7 +91,7 @@
 
 .hero-logo-img {
   width: 95%; /* Take up more horizontal space on mobile */
-  max-width: 850px; /* Noticeably larger max size for desktop */
+  max-width: 1200px; /* Much larger max size for desktop */
   height: auto;
   margin-bottom: 30px; /* A bit more breathing room */
   position: relative;

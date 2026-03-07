@@ -87,7 +87,7 @@ const toggleSearch = async () => {
         </button>
 
         <!-- Ticket Icon (SVG) -->
-        <a href="#tiket" class="nav-btn brutal-ticket desktop-only">
+        <a href="https://kolektix.com/event/jakarta-undersiege" target="_blank" rel="noopener noreferrer" class="nav-btn brutal-ticket desktop-only">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
           TIKET
         </a>
@@ -124,7 +124,7 @@ const toggleSearch = async () => {
       <a href="#lineup" class="mobile-nav-link" :class="{ 'active': activeMobileTab === 'lineup' }" @click="setActiveTab('lineup')">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
       </a>
-      <a href="#tiket" class="mobile-nav-link brutal-mobile-ticket" :class="{ 'active': activeMobileTab === 'tiket' }" @click="setActiveTab('tiket')">
+      <a href="https://kolektix.com/event/jakarta-undersiege" target="_blank" rel="noopener noreferrer" class="mobile-nav-link brutal-mobile-ticket" :class="{ 'active': activeMobileTab === 'tiket' }">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
       </a>
     </div>

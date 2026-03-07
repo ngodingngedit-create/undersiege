@@ -30,7 +30,7 @@
         <!-- Partner 2 -->
         <div class="partner-card">
           <div class="partner-logo">
-            <h3 class="fallback-logo-text">FEVER JOINT</h3>
+            <img src="/creation logo/FJR_LOGOGRAM copy.png" alt="Fever Joint" class="brand-logo" />
           </div>
           <div class="partner-desc">
             <p>We come from Jakarta, Indonesia. A city built on pressure, injustice, and stories that never get resolved. Fever Joint Records was forged from hatred, anger, revenge, betrayal, and hardcore. Not to look tough, but because it's all real. We don't polish the wounds. We turn them into sound.</p>
@@ -47,7 +47,7 @@
         <!-- Partner 3 -->
         <div class="partner-card">
           <div class="partner-logo">
-            <h3 class="fallback-logo-text">AVENUEROAD<br>RECORDS</h3>
+            <img src="/creation logo/AVENUEROAD 02.png" alt="Avenue Road Records" class="brand-logo" />
           </div>
           <div class="partner-desc">
             <p><strong>Avenue Road Records</strong> is an independent record label founded in Jakarta between 2005-2006. Emerging during the peak of Indonesia's underground emo/screamo post punk movement, the label quickly established itself as a trusted platform for authentic, uncompromised music.</p>
@@ -64,7 +64,7 @@
         <!-- Partner 4 -->
         <div class="partner-card">
           <div class="partner-logo">
-            <h3 class="fallback-logo-text">WARRIORS<br>JAKARTA</h3>
+            <img src="/creation logo/LOGO WARRIORS WHITE.png" alt="Warriors Jakarta" class="brand-logo" />
           </div>
           <div class="partner-desc">
             <p>Warriors Jakarta was founded on a spirit of solidarity to build and develop the Skinhead, Punk, Oi!, Mods, Ska, and Hardcore music culture. Established in 2000 as an independent record label, Warriors has released numerous bands and expanded into a music store, promoter, and event organizer.</p>
@@ -154,10 +154,18 @@
 }
 
 .brand-logo {
-  max-width: 120%; /* Increased from 100% to allow slight overflow if needed */
-  max-height: 140px; /* Matched the new container height */
+  max-width: 100%;
+  max-height: 100px;
   object-fit: contain;
-  transform: scale(1.15); /* Slightly scale up the image within its box */
+}
+
+/* Memperbesar khusus dua logo pertama secara visual */
+.partner-card:nth-child(1) .brand-logo {
+  transform: scale(1.25);
+}
+
+.partner-card:nth-child(2) .brand-logo {
+  transform: scale(1.4);
 }
 
 .partner-desc {
