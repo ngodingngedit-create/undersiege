@@ -6,7 +6,24 @@ const bands = [
     id: 1, 
     name: 'HAYWIRE', 
     origin: 'BOSTON, USA', 
-    image: '/event/Haywire_banner2.jpeg',
+    image: '/line%20up/haywire/card_detail_line-up_haywire_r3.jpg',
+    rowImage: '/line%20up/haywire/card_line%20up_haywire.jpg',
+    about: 'Menjadi salah satu ikon hardcore punk dari Boston, Haywire dikenal dengan energi liar dan riff yang super ngebut. Mereka membawa distorsi kental yang tidak pernah gagal memanaskan moshpit di setiap panggungnya.',
+    social: '@haywire_hxc',
+    spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
+    appleMusicLink: 'https://music.apple.com/us/artist/haywire-617/1715695747',
+    instagramLink: 'https://www.instagram.com/haywire617/',
+    youtubeLink: 'https://www.youtube.com/channel/UCP80m_rOjKXxjoBoQd2hyoA',
+    tiktokLink: 'https://www.tiktok.com/@haywire_617',
+    twitterLink: ''
+  },
+
+   { 
+    id: 2, 
+    name: 'ZIP', 
+    origin: 'BOSTON, USA', 
+    image: '/line%20up/ZIP/card_detail_line-up_zip.jpg',
+    rowImage: '/line%20up/ZIP/card_line-up_zip.jpg',
     about: 'Menjadi salah satu ikon hardcore punk dari Boston, Haywire dikenal dengan energi liar dan riff yang super ngebut. Mereka membawa distorsi kental yang tidak pernah gagal memanaskan moshpit di setiap panggungnya.',
     social: '@haywire_hxc',
     spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
@@ -114,8 +131,13 @@ onUnmounted(() => {
             v-for="band in bands" 
             :key="band.id" 
             class="lineup-row-card"
+            :class="{'has-custom-bg': band.rowImage}"
             @click="openModal(band)"
           >
+            <!-- Background Image layers if band has rowImage -->
+            <div v-if="band.rowImage" class="row-bg-image" :style="{ backgroundImage: 'url(\'' + band.rowImage + '\')' }"></div>
+            <div v-if="band.rowImage" class="row-bg-overlay"></div>
+            
             <div class="row-left">
               <a :href="band.spotifyLink" target="_blank" class="row-action-icon spotify-icon" @click.stop title="Spotify">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 11.9c3.2-1.2 6.6-1.5 10-.9"></path><path d="M7 14.5c2.8-.9 5.8-1 8.8-.4"></path><path d="M7.4 9.1c3.5-1.5 7.4-1.8 11.3-.9"></path></svg>
@@ -290,11 +312,18 @@ onUnmounted(() => {
   flex-direction: column;
 }
 
+.lineup-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Jarak pisah antar card */
+}
+
 .lineup-row-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 25px 15px;
+  min-height: 110px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   cursor: pointer;
   background: transparent;
@@ -311,6 +340,7 @@ onUnmounted(() => {
   transform: scaleY(0);
   transform-origin: center;
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 3;
 }
 
 .lineup-row-card:last-child {
@@ -326,7 +356,45 @@ onUnmounted(() => {
   transform: scaleY(1);
 }
 
+/* Background image styling for cards */
+.lineup-row-card.has-custom-bg {
+  /* Removed specific hover override so it performs the normal padding-left / orange bar animate */
+}
+
+.row-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.row-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(13,13,15,0.8) 0%, rgba(13,13,15,0.2) 50%, rgba(13,13,15,0.8) 100%);
+  z-index: 1;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.lineup-row-card.has-custom-bg:hover .row-bg-overlay {
+  opacity: 0;
+}
+
 .row-left {
+  position: relative;
+  z-index: 2;
   display: flex;
   gap: 15px;
   width: 100px;
@@ -335,6 +403,8 @@ onUnmounted(() => {
 }
 
 .row-center {
+  position: relative;
+  z-index: 2;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -385,6 +455,8 @@ onUnmounted(() => {
 }
 
 .row-right {
+  position: relative;
+  z-index: 2;
   display: flex;
   gap: 15px;
   align-items: center;
@@ -392,16 +464,22 @@ onUnmounted(() => {
 }
 
 .row-action-icon {
-  color: #555;
+  color: #a1a1aa; /* Warnai abu-abu dari awal saat belum dimainkan */
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); /* Kasih bayangan gelap agar tembus walau di taruh di background putih terang */
+}
+
+.lineup-row-card:hover .row-action-icon {
+  color: var(--accent-color);
+  filter: drop-shadow(0 0 8px rgba(255, 85, 0, 0.6)); /* Menyala oranye waktu card-nya hidup */
 }
 
 .row-action-icon:hover {
-  color: var(--accent-color);
-  transform: translateY(-2px);
+  filter: drop-shadow(0 0 12px rgba(255, 85, 0, 0.9)) !important;
+  transform: scale(1.15) translateY(-2px);
 }
 
 
@@ -711,25 +789,28 @@ onUnmounted(() => {
 /* List Screen Adjustments */
 @media (max-width: 768px) {
   .lineup-row-card {
-    flex-wrap: wrap;
-    gap: 15px;
+    padding: 15px 10px;
+    min-height: 80px;
   }
   .row-left {
     width: auto;
-    order: 2;
+    gap: 10px;
   }
   .row-center {
-    width: 100%;
-    order: 1;
-    margin-bottom: 10px;
+    flex-grow: 1;
+  }
+  .row-band-info {
+    padding-left: 10px;
+    gap: 2px;
   }
   .row-right {
-    order: 3;
-    width: auto;
-    margin-left: auto;
+    gap: 10px;
   }
   .list-band-name {
     font-size: 1.8rem;
+  }
+  .list-band-origin {
+    font-size: 0.7rem;
   }
   .section-title {
     font-size: 3rem;
@@ -737,12 +818,27 @@ onUnmounted(() => {
 }
 
 @media (max-width: 480px) {
+  .lineup-row-card {
+    padding: 10px 5px;
+  }
+  .row-left {
+    gap: 5px;
+  }
+  .row-right {
+    gap: 5px;
+  }
   .list-band-name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+  .list-band-origin {
+    font-size: 0.6rem;
+  }
+  .row-action-icon {
+    padding: 4px;
   }
   .row-action-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
 }
 </style>
