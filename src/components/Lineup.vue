@@ -10,7 +10,7 @@ const bands = [
     rowImage: '/line%20up/haywire/card_line%20up_haywire.jpg',
     about: 'Menjadi salah satu ikon hardcore punk dari Boston, Haywire dikenal dengan energi liar dan riff yang super ngebut. Mereka membawa distorsi kental yang tidak pernah gagal memanaskan moshpit di setiap panggungnya.',
     social: '@haywire_hxc',
-    spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
+    // spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
     appleMusicLink: 'https://music.apple.com/us/artist/haywire-617/1715695747',
     instagramLink: 'https://www.instagram.com/haywire617/',
     youtubeLink: 'https://www.youtube.com/channel/UCP80m_rOjKXxjoBoQd2hyoA',
@@ -18,31 +18,22 @@ const bands = [
     twitterLink: ''
   },
 
-   { 
-    id: 2, 
-    name: 'ZIP', 
-    origin: 'BOSTON, USA', 
-    image: '/line%20up/ZIP/card_detail_line-up_zip.jpg',
-    rowImage: '/line%20up/ZIP/card_line-up_zip.jpg',
-    about: 'Menjadi salah satu ikon hardcore punk dari Boston, Haywire dikenal dengan energi liar dan riff yang super ngebut. Mereka membawa distorsi kental yang tidak pernah gagal memanaskan moshpit di setiap panggungnya.',
-    social: '@haywire_hxc',
-    spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
-    appleMusicLink: 'https://music.apple.com/us/artist/haywire-617/1715695747',
-    instagramLink: 'https://www.instagram.com/haywire617/',
-    youtubeLink: 'https://www.youtube.com/channel/UCP80m_rOjKXxjoBoQd2hyoA',
-    tiktokLink: 'https://www.tiktok.com/@haywire_617',
-    twitterLink: ''
-  },
+  //  { 
+  //   id: 2, 
+  //   name: 'ZIP', 
+  //   origin: 'BOSTON, USA', 
+  //   image: '/line%20up/ZIP/card_detail_line-up_zip.jpg',
+  //   rowImage: '/line%20up/ZIP/card_line-up_zip.jpg',
+  //   about: 'Menjadi salah satu ikon hardcore punk dari Boston, Haywire dikenal dengan energi liar dan riff yang super ngebut. Mereka membawa distorsi kental yang tidak pernah gagal memanaskan moshpit di setiap panggungnya.',
+  //   social: '@haywire_hxc',
+  //   // spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
+  //   appleMusicLink: 'https://music.apple.com/us/artist/haywire-617/1715695747',
+  //   instagramLink: 'https://www.instagram.com/haywire617/',
+  //   youtubeLink: 'https://www.youtube.com/channel/UCP80m_rOjKXxjoBoQd2hyoA',
+  //   tiktokLink: 'https://www.tiktok.com/@haywire_617',
+  //   twitterLink: ''
+  // },
   /*
-  { 
-    id: 2, 
-    name: 'STRAIGHT ANSWER', 
-    origin: 'JAKARTA, ID', 
-    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600&auto=format&fit=crop',
-    about: 'Legenda Jakarta Hardcore! Straight Answer telah menyuarakan semangat positive youth dan pergerakan lewat musik sejak dekade 90-an. Mereka adalah pilar penting dari skena underground ibu kota.',
-    social: '@straightanswerjhc',
-    spotifyLink: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3LDIBRoaCDQ?utm_source=generator&theme=0'
-  },
   { 
     id: 3, 
     name: 'NO EXCUSE', 
@@ -139,9 +130,9 @@ onUnmounted(() => {
             <div v-if="band.rowImage" class="row-bg-overlay"></div>
             
             <div class="row-left">
-              <a :href="band.spotifyLink" target="_blank" class="row-action-icon spotify-icon" @click.stop title="Spotify">
+              <!-- <a :href="band.spotifyLink" target="_blank" class="row-action-icon spotify-icon" @click.stop title="Spotify">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 11.9c3.2-1.2 6.6-1.5 10-.9"></path><path d="M7 14.5c2.8-.9 5.8-1 8.8-.4"></path><path d="M7.4 9.1c3.5-1.5 7.4-1.8 11.3-.9"></path></svg>
-              </a>
+              </a> -->
               <a v-if="band.appleMusicLink" :href="band.appleMusicLink" target="_blank" class="row-action-icon apple-icon" @click.stop title="Apple Music">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
               </a>
@@ -232,10 +223,10 @@ onUnmounted(() => {
               </div>
             </div>
 
-            <hr class="stunning-divider" />
+            <hr class="stunning-divider" v-if="selectedBand.spotifyLink" />
 
             <!-- Spotify Playlist Highlight -->
-            <div class="stunning-section stunning-playlist-container">
+            <div class="stunning-section stunning-playlist-container" v-if="selectedBand.spotifyLink">
               <div class="playlist-header">
                 <div class="header-led"></div>
                 <h3>PLAYLIST</h3>
@@ -574,7 +565,7 @@ onUnmounted(() => {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   background-size: cover;
-  background-position: center;
+  background-position: center top; /* Center top prevents people's heads from getting cut off */
 }
 
 .stunning-hero-gradient {
@@ -686,9 +677,7 @@ onUnmounted(() => {
 
 /* Playlist Element */
 .stunning-playlist-container {
-  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.2) 100%);
   border-radius: 16px;
-  padding: 2px; /* For a subtle gradient border effect */
   position: relative;
 }
 
@@ -753,9 +742,15 @@ onUnmounted(() => {
   }
   
   .stunning-hero {
-    height: 250px;
-    min-height: 250px;
-    padding: 20px;
+    height: 180px;
+    min-height: 180px;
+    padding: 15px 20px;
+  }
+
+  .stunning-hero-img {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top center;
   }
   
   .stunning-title {
