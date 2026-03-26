@@ -18,59 +18,37 @@ const bands = [
     twitterLink: ''
   },
 
-  //  { 
-  //   id: 2, 
-  //   name: 'ZIP', 
-  //   origin: 'BOSTON, USA', 
-  //   image: '/line%20up/ZIP/card_detail_line-up_zip.jpg',
-  //   rowImage: '/line%20up/ZIP/card_line-up_zip.jpg',
-  //   about: 'Menjadi salah satu ikon hardcore punk dari Boston, Haywire dikenal dengan energi liar dan riff yang super ngebut. Mereka membawa distorsi kental yang tidak pernah gagal memanaskan moshpit di setiap panggungnya.',
-  //   social: '@haywire_hxc',
-  //   // spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
-  //   appleMusicLink: 'https://music.apple.com/us/artist/haywire-617/1715695747',
-  //   instagramLink: 'https://www.instagram.com/haywire617/',
-  //   youtubeLink: 'https://www.youtube.com/channel/UCP80m_rOjKXxjoBoQd2hyoA',
-  //   tiktokLink: 'https://www.tiktok.com/@haywire_617',
-  //   twitterLink: ''
-  // },
-  /*
-  { 
+   { 
+    id: 2, 
+    name: 'ZIP', 
+    origin: 'BOSTON, USA', 
+    image: '/line%20up/ZIP/card_detail_line-up_zip.jpg',
+    rowImage: '/line%20up/ZIP/card_line up_ZIP.jpg',
+    about: 'Menjadi salah satu ikon hardcore punk dari Boston, Haywire dikenal dengan energi liar dan riff yang super ngebut. Mereka membawa distorsi kental yang tidak pernah gagal memanaskan moshpit di setiap panggungnya.',
+    social: '@ZIP_hxc',
+    // spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
+    appleMusicLink: 'https://music.apple.com/us/artist/haywire-617/1715695747',
+    instagramLink: 'https://www.instagram.com/haywire617/',
+    youtubeLink: 'https://www.youtube.com/channel/UCP80m_rOjKXxjoBoQd2hyoA',
+    tiktokLink: 'https://www.tiktok.com/@haywire_617',
+    twitterLink: ''
+  },
+
+   { 
     id: 3, 
-    name: 'NO EXCUSE', 
-    origin: 'JAKARTA, ID', 
-    image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=600&auto=format&fit=crop',
-    about: 'Grup asal Jakarta yang konsisten membakar panggung dengan ketukan agresif dan lirik lugas. No Excuse hadir untuk menegaskan bahwa hardcore bukan cuma musik, tapi gaya hidup dan sikap!',
-    social: '@noexcusejkt',
-    spotifyLink: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3LDIBRoaCDQ?utm_source=generator&theme=0'
+    name: 'THE END', 
+    origin: 'BOSTON, USA', 
+    image: '/line%20up/theend/card_detail_line up_the end.jpg',
+    rowImage: '/line%20up/theend/card_line up_the end.jpg',
+    about: 'Menjadi salah satu ikon hardcore punk dari Boston, Haywire dikenal dengan energi liar dan riff yang super ngebut. Mereka membawa distorsi kental yang tidak pernah gagal memanaskan moshpit di setiap panggungnya.',
+    social: '@theend_hxc',
+    // spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
+    appleMusicLink: 'https://music.apple.com/us/artist/haywire-617/1715695747',
+    instagramLink: 'https://www.instagram.com/haywire617/',
+    youtubeLink: 'https://www.youtube.com/channel/UCP80m_rOjKXxjoBoQd2hyoA',
+    tiktokLink: 'https://www.tiktok.com/@haywire_617',
+    twitterLink: ''
   },
-  { 
-    id: 4, 
-    name: 'BLOOD RUNS COLD', 
-    origin: 'NEW YORK, USA', 
-    image: 'https://images.unsplash.com/photo-1540829016269-e0520f6ba43e?q=80&w=600&auto=format&fit=crop',
-    about: 'Membawa elemen beatdown dari New York Hardcore (NYHC), Blood Runs Cold menampilkan raungan yang intens, breakdown berat tiada ampun, dan lirik tentang realita keras di jalanan kota besar.',
-    social: '@bloodrunscoldny',
-    spotifyLink: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3LDIBRoaCDQ?utm_source=generator&theme=0'
-  },
-  { 
-    id: 5, 
-    name: 'ZIPPER', 
-    origin: 'JAKARTA, ID', 
-    image: 'https://images.unsplash.com/photo-1493225457124-a1a2a4af7714?q=80&w=600&auto=format&fit=crop',
-    about: 'Zipper siap melibas panggung lewat distorsi bising dan ketukan drum yang memacu adrenalin. Set energi tinggi mereka bakal memaksa semua orang dalam pit untuk bergerak.',
-    social: '@zipper_raw',
-    spotifyLink: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3LDIBRoaCDQ?utm_source=generator&theme=0'
-  },
-  { 
-    id: 6, 
-    name: 'FINAL ATTACK', 
-    origin: 'JAKARTA, ID', 
-    image: 'https://images.unsplash.com/photo-1520637102912-2df6bb2aec6d?q=80&w=600&auto=format&fit=crop',
-    about: 'Unit hardcore / thrash dari Jakarta, Final Attack mengkombinasikan solo gitar cepat dengan gempuran hardcore murni. Tontonan wajib bagi mereka yang haus akan kecepatan.',
-    social: '@finalattack',
-    spotifyLink: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3LDIBRoaCDQ?utm_source=generator&theme=0'
-  }
-  */
 ]
 
 // Modal state
@@ -174,7 +152,7 @@ onUnmounted(() => {
           </button>
           
           <div class="stunning-hero">
-            <div class="stunning-hero-img" :style="{ backgroundImage: 'url(' + selectedBand.image + ')' }"></div>
+            <div class="stunning-hero-img" :style="{ backgroundImage: 'url(\'' + selectedBand.image + '\')' }"></div>
             <div class="stunning-hero-gradient"></div>
             <div class="stunning-hero-text">
               <span class="stunning-badge">{{ selectedBand.origin }}</span>
