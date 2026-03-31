@@ -49,6 +49,22 @@ const bands = [
     tiktokLink: 'https://www.tiktok.com/@haywire_617',
     twitterLink: ''
   },
+
+  { 
+    id: 4, 
+    name: 'KARMAX', 
+    origin: 'BOSTON, USA', 
+    image: '/line%20up/karmax/card_detail_line up_karmax.jpg',
+    rowImage: '/line%20up/karmax/card_line up_karmax.jpg',
+    about: 'Menjadi salah satu ikon hardcore punk dari Boston, Haywire dikenal dengan energi liar dan riff yang super ngebut. Mereka membawa distorsi kental yang tidak pernah gagal memanaskan moshpit di setiap panggungnya.',
+    social: '@karmx_hxc',
+    // spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
+    appleMusicLink: 'https://music.apple.com/us/artist/haywire-617/1715695747',
+    instagramLink: 'https://www.instagram.com/haywire617/',
+    youtubeLink: 'https://www.youtube.com/channel/UCP80m_rOjKXxjoBoQd2hyoA',
+    tiktokLink: 'https://www.tiktok.com/@haywire_617',
+    twitterLink: ''
+  },
 ]
 
 // Modal state
