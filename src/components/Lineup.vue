@@ -92,20 +92,20 @@ const bands = [
     // tiktokLink: 'https://www.tiktok.com/@haywire_617',
   },
 
-  // { 
-  //   id: 7, 
-  //   name: 'Grrrl Gang', 
-  //   origin: 'YOGYAKARTA, INA', 
-  //   image: '/line%20up/grrl/card_detail_line up_gg.jpg',
-  //   rowImage: '/line%20up/grrl/card_line up_grrrl gang.jpg',
-  //   about: 'Grrrl Gang is an indie pop/alternative band from Yogyakarta, Indonesia, known for their dreamy, jangly sound and catchy yet emotionally honest songwriting. Drawing comparisons to bands like Alvvays and The Beths, they bring a light but attitude-filled approach to modern indie. They gained wider attention through their DIY releases before breaking into the international scene, eventually working with EMI Records. Their music often touches on coming-of-age themes, insecurities, and self-expression, delivered through a mix of sweet melodies and sharp perspective.',
-  //   // social: '@pap.hxc',
-  //   // spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
-  //   appleMusicLink: 'https://music.apple.com/id/artist/grrrl-gang/1260154814',
-  //   instagramLink: 'https://www.instagram.com/grrrlgang?igsh=Ym5lamR0ZXRjMjNh',
-  //   youtubeLink: 'https://youtube.com/@grrrlgang?si=i9QMUWPfpB7hAeU-',
-  //   // tiktokLink: 'https://www.tiktok.com/@haywire_617',
-  // },
+  { 
+    id: 7, 
+    name: 'Grrrl Gang', 
+    origin: 'YOGYAKARTA, INA', 
+    image: '/line%20up/grrl/card_detail_line up_gg.jpg',
+    rowImage: '/line%20up/grrl/card_line up_grrrl gang.jpg',
+    about: 'Grrrl Gang is an indie pop/alternative band from Yogyakarta, Indonesia, known for their dreamy, jangly sound and catchy yet emotionally honest songwriting. Drawing comparisons to bands like Alvvays and The Beths, they bring a light but attitude-filled approach to modern indie. They gained wider attention through their DIY releases before breaking into the international scene, eventually working with EMI Records. Their music often touches on coming-of-age themes, insecurities, and self-expression, delivered through a mix of sweet melodies and sharp perspective.',
+    // social: '@pap.hxc',
+    // spotifyLink: 'https://open.spotify.com/embed/artist/5lU30M9td0FUDVSTCucwnu?utm_source=generator&theme=0',
+    appleMusicLink: 'https://music.apple.com/id/artist/grrrl-gang/1260154814',
+    instagramLink: 'https://www.instagram.com/grrrlgang?igsh=Ym5lamR0ZXRjMjNh',
+    youtubeLink: 'https://youtube.com/@grrrlgang?si=i9QMUWPfpB7hAeU-',
+    // tiktokLink: 'https://www.tiktok.com/@haywire_617',
+  },
 ]
 
 // Modal state
