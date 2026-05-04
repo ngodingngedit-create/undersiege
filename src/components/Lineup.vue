@@ -79,7 +79,7 @@ const bands = [
 
   { 
     id: 6, 
-    name: 'PAP', 
+    name: 'pleazure and pain', 
     origin: 'MEDAN, INA', 
     image: '/line%20up/pap/card_detail_line up_PAP.jpg',
     rowImage: '/line%20up/pap/card_line up_PAP.jpg',
